@@ -160,29 +160,7 @@ public class VirtualMachineLauncher extends ComputerLauncher {
 
     @Override
     public Descriptor<ComputerLauncher> getDescriptor() {
-        return Hudson.getInstance().getDescriptor(getClass());
+        // do not show up in UI lists (taken from Virtualbox plugin)
+        throw new UnsupportedOperationException();        
     }
-    @Extension
-    public static final Descriptor<ComputerLauncher> DESCRIPTOR = new Descriptor<ComputerLauncher>() {
-
-        private String hypervisorDescription;
-        private String virtualMachineName;
-        private ComputerLauncher delegate;
-
-        public String getDisplayName() {
-            return "Virtual Machine Launcher";
-        }
-
-        public String getHypervisorDescription() {
-            return hypervisorDescription;
-        }
-
-        public String getVirtualMachineName() {
-            return virtualMachineName;
-        }
-
-        public ComputerLauncher getDelegate() {
-            return delegate;
-        }
-    };
 }
