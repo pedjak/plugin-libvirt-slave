@@ -83,11 +83,6 @@ public class VirtualMachineLauncher extends ComputerLauncher {
     }
 
     @Override
-    public boolean isLaunchSupported() {
-        return delegate.isLaunchSupported();
-    }
-
-    @Override
     public void launch(SlaveComputer slaveComputer, TaskListener taskListener)
             throws IOException, InterruptedException {
         taskListener.getLogger().println("Getting connection to the virtual datacenter");
